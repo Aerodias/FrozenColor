@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 
-<html>
-	<head>
-		<meta  charset=UTF-8>
-		<title>Frozen Bubble</title>
+<head>
+    <meta  charset=UTF-8>
+	<title>Frozen Color</title>
 	</head>
-	<body>
-		<video src="video/frozen.mp4" width="400" height="222" controls="controls"></video>
-		<br>
-		<img src="image/fb1.jpg" width=200 height=200>
-		<img src="image/fb2.jpg" width=200 height=200>
-		<img src="image/fb3.jpg" width=200 height=200>
-</body>
+	
+            <video src="video/frozen.mp4" width="400" height="222" controls="controls"></video>
+            <br>
+            <img src="image/fb1.jpg" width=200 height=200>
+            <img src="image/fb2.jpg" width=200 height=200>
+            <img src="image/fb3.jpg" width=200 height=200>
+                
+            <div id="boutons">
+		<button type="button">Allez vient jouer</button>
+            </div>
+                
+                
+                
+        Faut dormir au lieux de jouer à des jeux stupide ! ! !
+	<div id="divHeure"> </div>
 
-</html>
+
+<script>
+var exempleInterval = setInterval("AffichageHeure()", 2000); 
+
+
+
+
+function AffichageHeure(){
+   var exempleDate = new Date();
+   var exempleHeure = exempleDate.toLocaleTimeString();
+   document.getElementById('divHeure').innerHTML = exempleHeure;
+}
+</script> 
