@@ -21,29 +21,35 @@ and open the template in the editor.
                 
                 <div class="Tableau">
                     Score Actuelle : 
-                    <input class="Score Actuelle" type="text" size="10" name="Score"></input>
-
+                    <input class="Score Actuelle" type="text" size="10" name="Score">
                     <br>
 
 
                     Niveau Actuelle: 
-                    <input class="Niveau Actuelle" type="text" size="10" name="Niveau"></input>
+                    <input class="Niveau Actuelle" type="text" size="10" name="Niveau">
                     <br>
                     
                     <div id="boutons">
                         <input type="button"  value="Resultat" onclick="location.href='resultat.html'">
                     </div>
                 </div>
-
-                
             </fieldset>  
         </form>
         
         
         
 <script>
-      document.forms["Tableau"];      
-            
+      var xhr_object = null; 
+2	 
+3	if(window.XMLHttpRequest) // Firefox 
+4	   xhr_object = new XMLHttpRequest(); 
+5	else if(window.ActiveXObject) // Internet Explorer 
+6	   xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
+7	else { // XMLHttpRequest non supporté par le navigateur 
+8	   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
+9	   return; 
+10	} 
+11	  
             
             
 </script>
