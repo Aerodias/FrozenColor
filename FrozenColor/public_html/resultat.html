@@ -4,13 +4,59 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+
     <head>
-        <title>TODO supply a title</title>
+        <title>Resultat De La Partie</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+    
+    
+    <div id="boutons">
+		<input type="button"  value="Index" onclick="location.href='index.html'">
+    </div>
+    
+    
+    
+    
+    <div id="boutons">
+		<input type="button"  value="recharger page" onclick="location.href='resultat.html'">
+    </div>
+    
+    
+    
+    <div>
+        <?php
+        Votre Score actuel est : ".$_POST['Score'];
+        
+        Vous êtes arriver au Niveau : ".$_POST['Niveau'];
+        
+        Bravo ! ! ! 
+        ?>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ <!--   
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+});
+</script>
+
+<p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+-->
