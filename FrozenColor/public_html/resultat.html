@@ -40,10 +40,14 @@ and open the template in the editor.
     
     <script>
         
-        function ReturnScore(){
-        // Retrieve
-        document.getElementById("ReturnScore").innerHTML = localStorage.getItem("BestScore"); 
-        }
+        function retrieveScore() {
+        console.log("Dans la fonction retrieveScore");
+        var scoreRetrieve = 'None';
+        var scoreRetrieve = localStorage.getItem('BestScore', scoreRetrieve);
+        ("BestScore").text(scoreRetrieve);
+        console.log("Fin de la fonction retrieveScore");
+        console.log("Le score recu est = ", scoreRetrieve);
+    }
     </script>
     
     

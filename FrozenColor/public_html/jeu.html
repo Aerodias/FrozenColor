@@ -36,6 +36,8 @@ and open the template in the editor.
             </fieldset>  
         </form>
         
+        
+        
         <canvas id="jeu" width="640" height="480"></canvas>
         <script src ="jeu.js"></script>
         
@@ -43,11 +45,11 @@ and open the template in the editor.
        
           
     function storeScore(){
-        console.log("Dans la fonction Score");
-        var Score = document.getElementById("BestScore").value;
-        console.log("Le Score est de  = ", Score);
-        localStorage.setItem('BestScore', Score);
-        console.log(" Alors maintenant on rigole :P",localstorage.getItem("BestScore"));
+        console.log("Dans la fonction storeScore");
+        var score = document.getElementById("BestScore").value;
+        console.log("Le Score est de  = ", score);
+        localStorage.setItem('BestScore', score);
+        console.log(localStorage.getItem("BestScore"));
         location.href='resultat.html';
     }
             
