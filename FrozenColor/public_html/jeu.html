@@ -21,7 +21,7 @@ and open the template in the editor.
                 
                 <div class="Tableau">
                     Score Actuelle : 
-                    <input class="Score Actuelle" type="text" size="10" name="Score">
+                        <input type="text" id="BestScore" size="10" name="Score">
                     <br>
 
 
@@ -30,7 +30,7 @@ and open the template in the editor.
                     <br>
                     
                     <div id="boutons">
-                        <input type="button"  value="Resultat" onclick="location.href='resultat.html'">
+                        <input type="button"  value="Resultat" onclick="storeScore();">
                     </div>
                 </div>
             </fieldset>  
@@ -39,17 +39,15 @@ and open the template in the editor.
         
         
 <script>
-      var xhr_object = null; 
-2	 
-3	if(window.XMLHttpRequest) // Firefox 
-4	   xhr_object = new XMLHttpRequest(); 
-5	else if(window.ActiveXObject) // Internet Explorer 
-6	   xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
-7	else { // XMLHttpRequest non supporté par le navigateur 
-8	   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
-9	   return; 
-10	} 
-11	  
-            
+       
+          
+    function storeScore(){
+        console.log("Dans la fonction Score");
+        var Score = document.getElementById("BestScore").value;
+        console.log("Le Score est de  = ", Score);
+        localStorage.setItem('BestScore', Score);
+        console.log(" Alors maintenant on rigole :P",localstorage.getItem("BestScore"));
+        location.href='resultat.html';
+    }
             
 </script>

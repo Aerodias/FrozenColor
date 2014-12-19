@@ -26,14 +26,25 @@ and open the template in the editor.
     
     
     <div>
-        <?php
-        Votre Score actuel est : ".$_POST['Score'];
         
-        Vous êtes arriver au Niveau : ".$_POST['Niveau'];
-        
+        Votre Score actuel est : <div id="ReturnScore"></div>
+        <br>
+        <br>
+        <br>
+        Vous êtes arriver au Niveau : 
+        <br>
+        <br>
         Bravo ! ! ! 
-        ?>
+       
     </div>
+    
+    <script>
+        
+        function ReturnScore(){
+        // Retrieve
+        document.getElementById("ReturnScore").innerHTML = localStorage.getItem("BestScore"); 
+        }
+    </script>
     
     
     
