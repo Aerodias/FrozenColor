@@ -19,11 +19,16 @@ and open the template in the editor.
     
     
     
-    <div id="boutons">
+    <div id="bouton">
 		<input type="button"  value="recharger page" onclick="location.href='resultat.html'">
     </div>
     
     
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     
     <div>
         
@@ -31,22 +36,37 @@ and open the template in the editor.
         <br>
         <br>
         <br>
-        Vous êtes arriver au Niveau : 
+        Vous êtes arriver au Niveau : <div id="ReturnNiveau"></div>
         <br>
         <br>
         Bravo ! ! ! 
        
     </div>
     
+    
+    
     <script>
+        window.onload = retrieveScore;
         
         function retrieveScore() {
         console.log("Dans la fonction retrieveScore");
         var scoreRetrieve = 'None';
         var scoreRetrieve = localStorage.getItem('BestScore', scoreRetrieve);
-        ("BestScore").text(scoreRetrieve);
+        //('BestScore').text(scoreRetrieve);
         console.log("Fin de la fonction retrieveScore");
         console.log("Le score recu est = ", scoreRetrieve);
+        document.getElementById('ReturnScore').innerHTML = scoreRetrieve;
+        
+        
+        
+        console.log("Dans la fonction retrieveScore");
+        var scoreRetrieve2 = 'None';
+        var scoreRetrieve2 = localStorage.getItem('BestNiveau', scoreRetrieve2);
+        //('BestScore').text(scoreRetrieve);
+        console.log("Fin de la fonction retrieveScore");
+        console.log("Le score recu est = ", scoreRetrieve2);
+        document.getElementById('ReturnNiveau').innerHTML = scoreRetrieve2;
+    
     }
     </script>
     

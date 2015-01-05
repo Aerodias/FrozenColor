@@ -20,17 +20,17 @@ and open the template in the editor.
                 </legend>
                 
                 <div class="Tableau">
-                    Score Actuelle : 
+                    Score Actuelle :  
                         <input type="text" id="BestScore" size="10" name="Score">
                     <br>
 
 
                     Niveau Actuelle: 
-                    <input class="Niveau Actuelle" type="text" size="10" name="Niveau">
+                    <input id="BestNiveau" type="text" size="10" name="Niveau">
                     <br>
                     
                     <div id="boutons">
-                        <input type="button"  value="Resultat" onclick="storeScore();">
+                        <button onclick="storeScore();">Resultat</button> 
                     </div>
                 </div>
             </fieldset>  
@@ -46,10 +46,20 @@ and open the template in the editor.
           
     function storeScore(){
         console.log("Dans la fonction storeScore");
-        var score = document.getElementById("BestScore").value;
+        var score = document.getElementById('BestScore').value;
         console.log("Le Score est de  = ", score);
-        localStorage.setItem('BestScore', score);
-        console.log(localStorage.getItem("BestScore"));
+        localStorage.setItem("BestScore", score);
+        console.log(localStorage.getItem('BestScore'));
+        
+        
+        console.log("Dans la fonction storeScore");
+        var niveau = document.getElementById('BestNiveau').value;
+        console.log("Le Score est de  = ", niveau);
+        localStorage.setItem("BestNiveau", niveau);
+        console.log(localStorage.getItem('BestNiveau'));
+        
+        
+        
         location.href='resultat.html';
     }
             
