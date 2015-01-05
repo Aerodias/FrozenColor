@@ -11,21 +11,22 @@ if (monCanvas.getContext) {
     cercles[0] = [350, 400, 20];
     cercles[1] = [100, 100, 50];
     cercles[2] = [150, 200, 20];
-
+    var yvec=0;
+    var xvec=0;
     ctx.beginPath();
     ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
     ctx.closePath();
     
     ctx.fillStyle = "blue";
     ctx.fill();
-
+    
     document.getElementById('jeu').addEventListener('mousedown', newBubble, false);
     document.getElementById('jeu').addEventListener('mouseup', blue, false);
-
+    
 } else {
     alert('');
 }
-function newBubble() {
+function newBubble(e) {
     /*for(var i=0;i<3;i++){
      ctx.beginPath();
      ctx.arc(cercles[i][0],cercles[i][1],cercles[i][2],0,2*Math.PI,false);
@@ -34,11 +35,21 @@ function newBubble() {
      ctx.fill();
      ctx.closePath();
      }*/
+    var x=e.pageX;
+    var y=e.pageY;
+    var vx=x-350;
+    var vy=y-530;
+    var norme=Math.sqrt(vx*vx+vy*vy);
+    xvec=vx/norme;
+    yvec=vy/norme;
+    var angle=Math.atan((y-530)/(x-350));
+    console.log(x,y,angle/3.14159*180);
     ctx.strokeStyle = "BLACK";
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     var j = 0;
     ctx.save();
-    var interval = setInterval(translation, 140);
+    //ctx.rotate(45*Math.PI/180);
+    var interval = setInterval(translation, 14);
     ctx.beginPath();
     ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
     ctx.closePath();
@@ -56,8 +67,9 @@ function blue() {
 }
 
 function translation() {
-    ctx.clearRect(cercles[0][0]-cercles[0][2],cercles[0][1]-cercles[0][2],2*cercles[0][2],2*cercles[0][2]);
-    cercles[0][1]+=-5;
+    ctx.clearRect(cercles[0][0]-cercles[0][2]-5,cercles[0][1]-cercles[0][2]-5,2*cercles[0][2]+15,2*cercles[0][2]+15);
+    cercles[0][1]+=yvec;
+    cercles[0][0]+=xvec;
     ctx.beginPath();
     ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
     ctx.closePath();
