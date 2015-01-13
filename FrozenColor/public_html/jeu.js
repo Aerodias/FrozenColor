@@ -13,15 +13,18 @@ if (monCanvas.getContext) {
     cercles[2] = [150, 200, 20];
     var yvec=0;
     var xvec=0;
-    ctx.beginPath();
+   /* ctx.beginPath();
     ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
-    ctx.closePath();
+    ctx.closePath();*/
     
     ctx.fillStyle = "blue";
     ctx.fill();
     
+    var interval = setInterval(translation, 14);
+    var dejaCliquer = new Boolean(true);
     document.getElementById('jeu').addEventListener('mousedown', newBubble, false);
     document.getElementById('jeu').addEventListener('mouseup', blue, false);
+
     
 } else {
     alert('');
@@ -35,6 +38,10 @@ function newBubble(e) {
      ctx.fill();
      ctx.closePath();
      }*/
+    
+    //document.write(a); 
+    if(dejaCliquer){
+    dejaCliquer=false;
     var x=e.pageX;
     var y=e.pageY;
     var vx=x-350;
@@ -49,31 +56,39 @@ function newBubble(e) {
     var j = 0;
     ctx.save();
     //ctx.rotate(45*Math.PI/180);
-    var interval = setInterval(translation, 14);
-    ctx.beginPath();
+    //var interval = setInterval(translation, 14);
+    
+    /*ctx.beginPath();
     ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
-    ctx.closePath();
+    ctx.closePath();*/
 
     ctx.fill();
     ctx.restore();
-
+    
+    }
 
 }
 
 function blue() {
+    /*
     ctx.strokeStyle = "BLACK";
     ctx.fillStyle = "blue";
-    ctx.fill();
+    ctx.fill();*/
 }
 
 function translation() {
+    
     ctx.clearRect(cercles[0][0]-cercles[0][2]-5,cercles[0][1]-cercles[0][2]-5,2*cercles[0][2]+15,2*cercles[0][2]+15);
+    for(var i=0;i<cercles.length;i++){
+    ctx.beginPath();
+    ctx.arc(cercles[i][0],cercles[i][1],cercles[i][2], 0, 2 * Math.PI, false);
+    ctx.closePath();
+    ctx.fill();   
+    }
     cercles[0][1]+=yvec;
     cercles[0][0]+=xvec;
-    ctx.beginPath();
-    ctx.arc(cercles[0][0],cercles[0][1],cercles[0][2], 0, 2 * Math.PI, false);
-    ctx.closePath();
-    ctx.fill();
+    
+
     
 }
 
