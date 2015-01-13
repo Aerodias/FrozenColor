@@ -78,15 +78,23 @@ function blue() {
 
 function translation() {
     
-    ctx.clearRect(cercles[0][0]-cercles[0][2]-5,cercles[0][1]-cercles[0][2]-5,2*cercles[0][2]+15,2*cercles[0][2]+15);
     for(var i=0;i<cercles.length;i++){
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(cercles[i][0],cercles[i][1],cercles[i][2]+1, 0, 2 * Math.PI, false);
+    ctx.closePath();
+    ctx.fill();
+    }
+    cercles[0][1]+=yvec;
+    cercles[0][0]+=xvec;
+    for(var i=0;i<cercles.length;i++){
+    ctx.fillStyle = "blue";
     ctx.beginPath();
     ctx.arc(cercles[i][0],cercles[i][1],cercles[i][2], 0, 2 * Math.PI, false);
     ctx.closePath();
     ctx.fill();   
     }
-    cercles[0][1]+=yvec;
-    cercles[0][0]+=xvec;
+
     
 
     
